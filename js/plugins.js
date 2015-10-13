@@ -20,5 +20,7 @@ Xtremap.UIComponents = function( customSetting ) {
 	var initOneMap = function() {
 
 		var OneMap = new GetOneMap('map-container', 'sm');
+		OneMap.overlayKML('../data/dengue.kml');
+
 	}
 }
