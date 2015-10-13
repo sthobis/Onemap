@@ -19,6 +19,6 @@ Xtremap.UIComponents = function( customSetting ) {
 	// method to initialize map by calling API
 	var initOneMap = function() {
 
-		var OneMap = new GetOneMap('divMain', 'sm');
+		var OneMap = new GetOneMap('map-container', 'sm');
 	}
 }
