@@ -1,0 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+html {
+  font-size: 62.5%;
+}
+body p {
+  font-size: 1.4rem;
+  color: #454545;
+}
+body div[role="main"] .map-container {
+  width: 500px;
+  height: 500px;
+}
