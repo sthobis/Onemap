@@ -5,11 +5,9 @@
       <Placemark>
         <name>Dengue 1</name>
         <id>0</id>
-        <description>
-          <TEXTFORMAT LEADING="2">
-            Dengue 1 description
-          </TEXTFORMAT>
-        </description>
+        <DESCRIPTION>
+            <![CDATA[Dengue 3 with image<img src="http://i.imgur.com/7q6sYd0.jpg"/>]]>
+        </DESCRIPTION>
         <Polygon>
           <outerBoundaryIs>
             <LinearRing>
@@ -21,9 +19,9 @@
       <Placemark>
         <name>Dengue 2</name>
         <id>1</id>
-        <description>
-          <FONT FACE="Verdana" SIZE="10" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Dengue 3 description</FONT>
-        </description>
+        <Description>
+          Dengue dengue
+        </Description>
         <Polygon>
           <outerBoundaryIs>
             <LinearRing>
@@ -36,11 +34,14 @@
         <name>Dengue 3</name>
         <id>2</id>
         <description>
-          <TEXTFORMAT LEADING="2">
-            <P ALIGN="LEFT">
-              <FONT FACE="Verdana" SIZE="10" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Dengue 3 description</FONT>
-            </P>
-          </TEXTFORMAT>
+          <!--
+            Hello,
+               I am a multi-line XML comment
+               <staticText>
+                  <reportElement x="180" y="0" width="200" height="20"/>
+                  <text><![CDATA[Hello World!]]></text>
+                </staticText>
+            -->
         </description>
         <Polygon>
           <outerBoundaryIs>
