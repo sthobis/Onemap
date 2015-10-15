@@ -6,11 +6,7 @@
         <name>Dengue 1</name>
         <id>0</id>
         <description>
-          <TEXTFORMAT LEADING="2">
-            <P ALIGN="LEFT">
-              <FONT FACE="Verdana" SIZE="10" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Dengue 1 description</FONT>
-            </P>
-          </TEXTFORMAT>
+          Dengue 1 description
         </description>
         <Polygon>
           <outerBoundaryIs>
@@ -24,16 +20,12 @@
         <name>Dengue 2</name>
         <id>1</id>
         <description>
-          <TEXTFORMAT LEADING="2">
-            <P ALIGN="LEFT">
-              <FONT FACE="Verdana" SIZE="10" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">
-                Dengue 2 description with
-                <A HREF="http://google.com" TARGET="_blank">
-                  <U>links</U>
-                </A>
-              </FONT>
-            </P>
-          </TEXTFORMAT>
+          <![CDATA[
+            <h1>CDATA Tags are useful!</h1>
+            <p><font color="red">Text is <i>more readable</i> and 
+            <b>easier to write</b> when you can avoid using entity 
+            references.</font></p>
+          ]]>
         </description>
         <Polygon>
           <outerBoundaryIs>
