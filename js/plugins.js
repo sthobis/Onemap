@@ -1,6 +1,8 @@
 // init Namespace
 var Xtremap = Xtremap || {};
 
+var OneMap;
+
 // module namespace
 Xtremap.UIComponents = function( customSetting ) {
 
@@ -19,7 +21,7 @@ Xtremap.UIComponents = function( customSetting ) {
 	// method to initialize map by calling API
 	var initOneMap = function() {
 
-		var OneMap = new GetOneMap('map-container', 'sm');
+		OneMap = new GetOneMap('map-container', 'sm');
 		OneMap.overlayKML('../data/dengue.kml');
 
 	}
