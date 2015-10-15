@@ -10,3 +10,6 @@ body div[role="main"] .map-container {
   width: 500px;
   height: 500px;
 }
+body div[role="main"] .users {
+  background-color: #ffffff;
+}
