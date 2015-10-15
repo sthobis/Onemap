@@ -1,10 +1,11 @@
 // init Namespace
 var Xtremap = Xtremap || {};
 
-var OneMap;
-
 // module namespace
 Xtremap.UIComponents = function( customSetting ) {
+
+	// Onemap module-scoped variable
+	var OneMap;
 
 	// overwrite default settings
 	var settings = $.extend( {
@@ -21,8 +22,21 @@ Xtremap.UIComponents = function( customSetting ) {
 	// method to initialize map by calling API
 	var initOneMap = function() {
 
-		OneMap = new GetOneMap('map-container', 'sm');
-		OneMap.overlayKML('../data/dengue.kml');
+		// Check if container exist
+		if ($('#map-container').length) {
+			OneMap = new GetOneMap('map-container', 'sm');
+			drawOverlay();
+		} 
+	}
 
+	// method to draw overlay on top of created map
+	var drawOverlay = function() {
+
+		// Check if map is ready
+		if (OneMap.overlayKML) {
+			OneMap.overlayKML('../data/dengue.kml');
+		} else {
+			setTimeout(drawOverlay, 100);
+		}
 	}
 }
