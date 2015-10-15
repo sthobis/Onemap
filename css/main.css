@@ -10,6 +10,9 @@ body div[role="main"] .map-container {
   width: 500px;
   height: 500px;
 }
-body div[role="main"] .users {
+body div[role="main"] .user {
   background-color: #ffffff;
+}
+body div[role="main"] .hide::before {
+  content: 'x';
 }
