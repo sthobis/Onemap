@@ -34,7 +34,7 @@ Xtremap.UIComponents = function( customSetting ) {
 
 		// Check if map is ready
 		if (OneMap.overlayKML) {
-			OneMap.overlayKML('data/dengue.kml');
+			OneMap.overlayKML('data/dengue_downloaded.kml');
 		} else {
 			setTimeout(drawOverlay, 100);
 		}
