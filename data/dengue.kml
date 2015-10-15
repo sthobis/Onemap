@@ -6,7 +6,9 @@
         <name>Dengue 1</name>
         <id>0</id>
         <description>
-          Dengue 1 description
+          <TEXTFORMAT LEADING="2">
+            Dengue 1 description
+          </TEXTFORMAT>
         </description>
         <Polygon>
           <outerBoundaryIs>
@@ -20,12 +22,7 @@
         <name>Dengue 2</name>
         <id>1</id>
         <description>
-          <![CDATA[
-            <h1>CDATA Tags are useful!</h1>
-            <p><font color="red">Text is <i>more readable</i> and 
-            <b>easier to write</b> when you can avoid using entity 
-            references.</font></p>
-          ]]>
+          <FONT FACE="Verdana" SIZE="10" COLOR="#FFFFFF" LETTERSPACING="0" KERNING="0">Dengue 3 description</FONT>
         </description>
         <Polygon>
           <outerBoundaryIs>
