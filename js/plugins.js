@@ -5,11 +5,10 @@ var Xtremap = Xtremap || {};
 Xtremap.UIComponents = function( customSetting ) {
 
 	// Onemap module-scoped variable
-	var OneMap = new GetOneMap('map-container', 'sm');
+	var OneMap;
 	var mashup;
 	var themeGraphicsLayer;
 	var gra;
-	OverlayTheme();
 
 	// overwrite default settings
 	var settings = $.extend( {
