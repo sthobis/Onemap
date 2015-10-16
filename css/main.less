@@ -72,5 +72,71 @@ body {
 				content: 'x';
 			}
 		}
+
+		.basic-info {
+
+			.info-title {
+				color: #72c148;
+				font-weight: 600;
+				font-size: 20px;
+			}
+
+			table {
+				border: none;
+				border-spacing: none;
+				border-collapse: collapse;
+
+				tr {
+					border: none;
+
+					td {
+						border: none;
+					}
+				}
+			}
+		}
+
+		.breakdown-info {
+
+			.info-title {
+				color: #72c148;
+				font-weight: 600;
+				font-size: 20px;
+			}
+
+			table {
+				border: none;
+				border-spacing: none;
+				border-collapse: collapse;
+
+				thead {
+
+					th {
+
+						td {
+							border: 1px solid #cecece;
+							background-color: #5eb3dc;
+							color: #ffffff;
+						}
+					}
+				}
+
+				tr {
+					border: none;
+
+					&:nth-child(odd) {
+
+						td {
+							background-color: #ffffff;
+						}
+					}
+
+					td {
+						border: 1px solid #cecece;
+						background-color: #d8d8d8;
+					}
+				}
+			}
+		}
 	}
 }
