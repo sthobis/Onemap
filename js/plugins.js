@@ -329,8 +329,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 
 		var resultMarkup = "<br/>";
-		resultMarkup += "<a href='#' onclick ='switchTab(1)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
-		resultMarkup += "<a href='#' onclick ='switchTab(2)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
+		resultMarkup += "<a href='#' onclick ='XtrOnemapswitchTab(1)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(2)' class='tab-head' data-target='#breakdown-info>Breakdown</a>";
 		resultMarkup += "<div id='basic-info'>";
 			resultMarkup += "<p class='info-title'>"+parsedObject.oDescription+"</p>";
 			resultMarkup += "<table>";
@@ -351,17 +351,6 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			resultMarkup += "<tr><td>Location 4</td><td><strong>"+4+"</strong></td></tr>";
 			resultMarkup += "</tbody>";
 			resultMarkup += "</table>";
-			resultMarkup += "<script>function switchTab(target) {";
-			resultMarkup += "if (target == 1) {";
-			resultMarkup += "$('#breakdown-info').css('display','none');";
-			resultMarkup += "$('#basic-info').css('display','block');";
-			resultMarkup += "}";
-			resultMarkup += "else {";
-			resultMarkup += "$('#breakdown-info').css('display','block');";
-			resultMarkup += "$('#basic-info').css('display','none');";
-			resultMarkup += "}";
-			resultMarkup += "}</script>";
-		resultMarkup += "</div>";
 		return resultMarkup;
 	}
 }

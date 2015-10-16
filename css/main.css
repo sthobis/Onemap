@@ -16,50 +16,50 @@ body div[role="main"] .user {
 body div[role="main"] .hide::before {
   content: 'x';
 }
-body div[role="main"] .basic-info {
+body div[role="main"] #basic-info {
   display: block;
 }
-body div[role="main"] .basic-info .info-title {
+body div[role="main"] #basic-info .info-title {
   color: #72c148;
   font-weight: 600;
   font-size: 20px;
 }
-body div[role="main"] .basic-info table {
+body div[role="main"] #basic-info table {
   border: none;
   border-spacing: none;
   border-collapse: collapse;
 }
-body div[role="main"] .basic-info table tr {
+body div[role="main"] #basic-info table tr {
   border: none;
 }
-body div[role="main"] .basic-info table tr td {
+body div[role="main"] #basic-info table tr td {
   border: none;
 }
-body div[role="main"] .breakdown-info {
+body div[role="main"] #breakdown-info {
   display: none;
 }
-body div[role="main"] .breakdown-info .info-title {
+body div[role="main"] #breakdown-info .info-title {
   color: #72c148;
   font-weight: 600;
   font-size: 20px;
 }
-body div[role="main"] .breakdown-info table {
+body div[role="main"] #breakdown-info table {
   border: none;
   border-spacing: none;
   border-collapse: collapse;
 }
-body div[role="main"] .breakdown-info table thead th td {
+body div[role="main"] #breakdown-info table thead th td {
   border: 1px solid #cecece;
   background-color: #5eb3dc;
   color: #ffffff;
 }
-body div[role="main"] .breakdown-info table tr {
+body div[role="main"] #breakdown-info table tr {
   border: none;
 }
-body div[role="main"] .breakdown-info table tr:nth-child(odd) td {
+body div[role="main"] #breakdown-info table tr:nth-child(odd) td {
   background-color: #ffffff;
 }
-body div[role="main"] .breakdown-info table tr td {
+body div[role="main"] #breakdown-info table tr td {
   border: 1px solid #cecece;
   background-color: #d8d8d8;
 }
