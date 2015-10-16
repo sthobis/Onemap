@@ -16,6 +16,12 @@ body div[role="main"] .user {
 body div[role="main"] .hide::before {
   content: 'x';
 }
+body div[role="main"] .tab-head {
+  padding: 6px 8px;
+  background-color: #dedede;
+  border-radius: 5px;
+  margin-right: 10px;
+}
 body div[role="main"] #basic-info {
   display: block;
 }

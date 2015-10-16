@@ -342,7 +342,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			resultMarkup += "<p class='info-title'>"+parsedObject.oDescription+"</p>";
 			resultMarkup += "<table>";
 			resultMarkup += "<thead>";
-			resultMarkup += "<th><td>Location</td><td>No of cases</td></th>";
+			resultMarkup += "<tr><th>Location</th><th>No of cases</th></tr>";
 			resultMarkup += "</thead>";
 			resultMarkup += "<tbody>";
 			resultMarkup += "<tr><td>Location 1</td><td><strong>"+1+"</strong></td></tr>";
