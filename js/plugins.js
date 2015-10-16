@@ -28,7 +28,7 @@ Xtremap.UIComponents = function( customSetting ) {
 		// Check if container exist
 		if ($('#map-container').length) {
 			OneMap = new GetOneMap('map-container', 'sm');
-			//drawOverlay();
+			drawOverlay();
 		} 
 	}
 
