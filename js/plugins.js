@@ -48,28 +48,22 @@ Xtremap.UIComponents = function( customSetting ) {
 	var OverlayTheme = function() {
 	//debugger;
 
-		var themeName = "Museum";
-
-		if (themeName == "") {
-			alert('Please provide theme name')
-			return
-		}
-
+		var themeName = "DENGUE_CLUSTER";
 		mashup = new MashupData();
 		mashup.themeName = themeName;
 		mashup.extent = OneMap.map.extent.xmin + "," + OneMap.map.extent.ymin + "," + OneMap.map.extent.xmax + "," + OneMap.map.extent.ymax;
 
 		//add graphic layer
-		themeGraphicsLayer = new OneMap.GraphicsLayer(); ; //OneMap.GraphicsLayer();
+		themeGraphicsLayer = new esri.layers.GraphicsLayer();
 		themeGraphicsLayer.id = themeName;
 		OneMap.map.addLayer(themeGraphicsLayer);
-
 		mashup.GetMashupData(overlayData);
 
 		//resize info widnow
 		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(OverlayThemeOnExtentChnage)
+		
 		try {
 			//set graphic onclick event
 			dojo.connect(themeGraphicsLayer, "onClick", function (evt) {//debugger
