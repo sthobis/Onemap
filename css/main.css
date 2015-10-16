@@ -16,6 +16,9 @@ body div[role="main"] .user {
 body div[role="main"] .hide::before {
   content: 'x';
 }
+body div[role="main"] .basic-info {
+  display: block;
+}
 body div[role="main"] .basic-info .info-title {
   color: #72c148;
   font-weight: 600;
@@ -31,6 +34,9 @@ body div[role="main"] .basic-info table tr {
 }
 body div[role="main"] .basic-info table tr td {
   border: none;
+}
+body div[role="main"] .breakdown-info {
+  display: none;
 }
 body div[role="main"] .breakdown-info .info-title {
   color: #72c148;
