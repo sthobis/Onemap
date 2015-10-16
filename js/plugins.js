@@ -1,18 +1,17 @@
 // init Namespace
-var Xtremap = Xtremap || {};
+var XtrOnemap = XtrOnemap || {};
 
 // module namespace
-Xtremap.UIComponents = function( customSetting ) {
+XtrOnemap.UIComponents = function( customSetting ) {
 
-	// Onemap module-scoped variable
-	var OneMap;
-	var mashup;
-	var themeGraphicsLayer;
-	var gra;
+	// module-scoped vars
+	var OneMap; // main map
+	var mashup; // overlay
+	var themeGraphicsLayer; // overlay layer
+	var gra; // graphic utilities
 
 	// overwrite default settings
 	var settings = $.extend( {
-
 	}, 
 	customSetting || {});
 
@@ -20,6 +19,9 @@ Xtremap.UIComponents = function( customSetting ) {
 
 		// init main map from API
 		initOneMap();
+
+		// draw overlay on top of main map
+		drawOverlay();
 	}
 
 	// method to initialize map by calling API
@@ -28,7 +30,6 @@ Xtremap.UIComponents = function( customSetting ) {
 		// Check if container exist
 		if ($('#map-container').length) {
 			OneMap = new GetOneMap('map-container', 'sm');
-			drawOverlay();
 		} 
 	}
 
@@ -37,18 +38,20 @@ Xtremap.UIComponents = function( customSetting ) {
 
 		// Check if map is ready
 		if (OneMap.overlayKML) {
+			// using custom file
 			//OneMap.overlayKML('data/dengue.kml');
-			OverlayTheme();
+
+			// using OneMap mashup/theme data API
+			overlayTheme("DENGUE_CLUSTER");
 		} else {
 			setTimeout(drawOverlay, 100);
 		}
 	}
 
+	var overlayTheme = function(inputTheme) {
 
-	var OverlayTheme = function() {
-	//debugger;
-
-		var themeName = "DENGUE_CLUSTER";
+		// init theme
+		var themeName = inputTheme;
 		mashup = new MashupData();
 		mashup.themeName = themeName;
 		mashup.extent = OneMap.map.extent.xmin + "," + OneMap.map.extent.ymin + "," + OneMap.map.extent.xmax + "," + OneMap.map.extent.ymax;
@@ -62,7 +65,7 @@ Xtremap.UIComponents = function( customSetting ) {
 		//resize info widnow
 		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
-		OneMap.onOneMapExtentChange(OverlayThemeOnExtentChnage)
+		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
 		try {
 			//set graphic onclick event
@@ -80,15 +83,10 @@ Xtremap.UIComponents = function( customSetting ) {
 		}
 	}
 
-	var OverlayThemeOnExtentChnage = function(extent) {
-	//debugger
-
+	var overlayThemeOnExtentChange = function(extent) {
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
 		mashup.GetMashupData(overlayData)
 	}
-
-
-
 
 	var overlayData = function(mashupResults) {
 		function hexToRgb(hex) {
@@ -209,7 +207,6 @@ Xtremap.UIComponents = function( customSetting ) {
 			}
 		}
 
-		//var aa = themeGraphicsLayer;
 	}
 
 }
