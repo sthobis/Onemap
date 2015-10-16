@@ -29,7 +29,6 @@ Xtremap.UIComponents = function( customSetting ) {
 		if ($('#map-container').length) {
 			OneMap = new GetOneMap('map-container', 'sm');
 			//drawOverlay();
-			OverlayTheme();
 		} 
 	}
 
@@ -38,7 +37,8 @@ Xtremap.UIComponents = function( customSetting ) {
 
 		// Check if map is ready
 		if (OneMap.overlayKML) {
-			OneMap.overlayKML('data/dengue.kml');
+			//OneMap.overlayKML('data/dengue.kml');
+			OverlayTheme();
 		} else {
 			setTimeout(drawOverlay, 100);
 		}
