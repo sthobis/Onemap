@@ -71,9 +71,11 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			//set graphic onclick event
 			dojo.connect(themeGraphicsLayer, "onClick", function (evt) {//debugger
 				mashup.GetDataForCallout(evt.graphic, "", function (results) {//debugger
-					console.log(results);
-					var formattedResults = mashup.formatResultsEnhanced(results); //mashup.formatResults(results);
-					console.log(formattedResults);
+
+					// using API's formatter
+					// var formattedResults = mashup.formatResultsEnhanced(results);
+					// using custom formatter
+					var formattedResults = customFormatResultsEnhanced(results);
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
@@ -208,7 +210,129 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				themeGraphicsLayer.add(gra);
 			}
 		}
-
 	}
 
+	// method to format result object into html-ready format
+	var customFormatResultsEnhanced = function(resultObject) {
+		var nameVal = ""
+		nameVal = nameVal + "<br/>"
+		// to add Name on top
+		for (var key in resultObject[0]) {
+			switch (key) {
+				case 'NAME':
+					if (resultObject[0]["NAME"] != "") {
+						nameVal += "<strong>" + resultObject[0][key] + "</strong>" + "<br/>"
+						break;
+					}
+					else { break; }
+			}
+		}
+		for (var key in resultObject[0]) {
+			switch (key) {
+				case 'NAME':
+					if (resultObject[0]["NAME"] != "") {
+						break;
+					}
+					else { break; }
+				case "PHOTOURL":
+					if (resultObject[0]["PHOTOURL"] != "") {
+						break;
+					}
+					else { break; }
+				case "ICON_NAME":
+					if (resultObject[0]["ICON_NAME"] != "") {
+						break;
+					}
+					else { break; }
+				case "XY":
+					if (resultObject[0]["XY"] != "") {
+						break;
+					}
+					else { break; }
+				case 'DESCRIPTION':
+					if (resultObject[0]["DESCRIPTION"] != "") {
+						nameVal += resultObject[0]["DESCRIPTION"] + " "
+						break;
+					}
+					else { break; }
+				case "HYPERLINK":
+					if (resultObject[0]["HYPERLINK"] != "") {
+						nameVal += "<br/><a href=" + resultObject[0]["HYPERLINK"] + " target='_blank'>More Info</a>" + "<br/>"
+						break;
+					}
+					else { break; }
+				case "ADDRESSSTREETNAME":
+					if (resultObject[0]["ADDRESSSTREETNAME"] != "") {
+						nameVal += resultObject[0]["ADDRESSSTREETNAME"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSFLOORNUMBER":
+					if (resultObject[0]["ADDRESSFLOORNUMBER"] != "") {
+						nameVal += resultObject[0]["ADDRESSFLOORNUMBER"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSBLOCKHOUSENUMBER":
+					if (resultObject[0]["ADDRESSBLOCKHOUSENUMBER"] != "") {
+						nameVal += resultObject[0]["ADDRESSBLOCKHOUSENUMBER"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSBUILDINGNAME":
+					if (resultObject[0]["ADDRESSBUILDINGNAME"] != "") {
+						nameVal += resultObject[0]["ADDRESSBUILDINGNAME"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSFLOORNUMBER":
+					if (resultObject[0]["ADDRESSFLOORNUMBER"] != "") {
+						nameVal += resultObject[0]["ADDRESSFLOORNUMBER"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSUNITNUMBER":
+					if (resultObject[0]["ADDRESSUNITNUMBER"] != "") {
+						nameVal += resultObject[0]["ADDRESSUNITNUMBER"] + " "
+						break;
+					}
+					else { break; }
+				case "ADDRESSPOSTALCODE":
+					if (resultObject[0]["ADDRESSPOSTALCODE"] != "") {
+						nameVal += resultObject[0]["ADDRESSPOSTALCODE"] + " "
+						break;
+					}
+					else { break; }
+				case "SYMBOLCOLOR":
+					if (resultObject[0]["SYMBOLCOLOR"] != "") {
+						break;
+					}
+					else { break; }
+				case "MAPTIP":
+					if (resultObject[0]["MAPTIP"] != "") {
+						break;
+					}
+					else { break; }
+				case "OBJECTID":
+					if (resultObject[0]["OBJECTID"] != "") {
+						break;
+					}
+					else { break; }
+				default:
+					nameVal += resultObject[0][key] + "<br/>"
+			}
+		}
+		// for photo to be on bottom 
+		for (var key in resultObject[0]) {
+			switch (key) {
+				case "PHOTOURL":
+					if (resultObject[0]["PHOTOURL"] != "") {
+						nameVal += "<img src=" + resultObject[0]["PHOTOURL"] + "></img>" + "<br/>"
+						break;
+					}
+					else { break; }
+			}
+		}
+		return nameVal;
+	}
 }
