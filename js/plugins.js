@@ -149,23 +149,23 @@ Xtremap.UIComponents = function( customSetting ) {
 					var b = 0;
 				}
 				pntArr = [];
-				polygon = new OneMap.Polygon(new OneMap.SpatialReference({ wkid: 3414 }));
+				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
 				for (var x = 0; x < results[i].XY.split("|").length; x++) {
 					xCord = results[i].XY.split("|")[x].split(",")[0];
 					yCord = results[i].XY.split("|")[x].split(",")[1];
 
-					var PointLocation = new OneMap.Point(xCord, yCord, new OneMap.SpatialReference({ wkid: 3414 }))
+					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }))
 					pntArr.push(PointLocation);
 				}
 				polygon.addRing(pntArr);
 
-				gra = new OneMap.Graphic;
+				gra = new esri.Graphic;
 				gra.geometry = polygon;
 				gra.attributes = results[i];
 
-				var sfs = new OneMap.SimpleFillSymbol(OneMap.SimpleFillSymbol.STYLE_SOLID,
-					  new OneMap.SimpleLineSymbol(OneMap.SimpleLineSymbol.STYLE_SOLID,
+				var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
+					  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
 					  new dojo.Color([0, 0, 0]), 2), new dojo.Color([r, g, b, 0.8]));
 
 				gra.symbol = sfs;
@@ -187,22 +187,22 @@ Xtremap.UIComponents = function( customSetting ) {
 					var b = 0;
 				}
 				pntArr = [];
-				pLine = new OneMap.Geometry.Polyline(new OneMap.SpatialReference({ wkid: 3414 }));
+				pLine = new esri.geometry.Polyline(new esri.SpatialReference({wkid:3414}));
 
 				for (var x = 0; x < results[i].XY.split("|").length; x++) {
 					xCord = results[i].XY.split("|")[x].split(",")[0];
 					yCord = results[i].XY.split("|")[x].split(",")[1];
 
-					var PointLocation = new OneMap.Point(xCord, yCord, new OneMap.SpatialReference({ wkid: 3414 }))
+					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }))
 					pntArr.push(PointLocation);
 				}
 				pLine.addPath(pntArr);
 
-				gra = new OneMap.Graphic;
+				gra = new esri.Graphic;
 				gra.geometry = pLine;
 				gra.attributes = results[i];
 
-				var sfs = new OneMap.SimpleLineSymbol(OneMap.SimpleLineSymbol.STYLE_SOLID,
+				var sfs = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
 					  new dojo.Color([r, g, b]), 2);
 				gra.symbol = sfs;
 				themeGraphicsLayer.add(gra);
