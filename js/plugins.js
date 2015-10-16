@@ -71,7 +71,9 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			//set graphic onclick event
 			dojo.connect(themeGraphicsLayer, "onClick", function (evt) {//debugger
 				mashup.GetDataForCallout(evt.graphic, "", function (results) {//debugger
+					console.log(results);
 					var formattedResults = mashup.formatResultsEnhanced(results); //mashup.formatResults(results);
+					console.log(formattedResults);
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
