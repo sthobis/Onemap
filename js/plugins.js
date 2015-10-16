@@ -5,11 +5,11 @@ var Xtremap = Xtremap || {};
 Xtremap.UIComponents = function( customSetting ) {
 
 	// Onemap module-scoped variable
-	var OneMap;
+	var OneMap = new GetOneMap('map-container', 'sm');
 	var mashup;
 	var themeGraphicsLayer;
 	var gra;
-	djConfig = { parseOnLoad: true };
+	OverlayTheme();
 
 	// overwrite default settings
 	var settings = $.extend( {
@@ -49,7 +49,7 @@ Xtremap.UIComponents = function( customSetting ) {
 	var OverlayTheme = function() {
 	//debugger;
 
-		var themeName = "DENGUE_CLUSTER";
+		var themeName = "Museum";
 
 		if (themeName == "") {
 			alert('Please provide theme name')
@@ -91,7 +91,6 @@ Xtremap.UIComponents = function( customSetting ) {
 	//debugger
 
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
-
 		mashup.GetMashupData(overlayData)
 	}
 
