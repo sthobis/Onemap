@@ -329,8 +329,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 
 		var resultMarkup = "<br/>";
-		resultMarkup += "<a href='#' onclick ='XtrOnemapswitchTab(1)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
-		resultMarkup += "<a href='#' onclick ='switchTab(2)' class='tab-head' data-target='#breakdown-info>Breakdown</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(1)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(2)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
 		resultMarkup += "<div id='basic-info'>";
 			resultMarkup += "<p class='info-title'>"+parsedObject.oDescription+"</p>";
 			resultMarkup += "<table>";
