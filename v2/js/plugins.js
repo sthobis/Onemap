@@ -154,7 +154,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 	var overlayThemeOnExtentChange = function(extent) {
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
-		mashup.GetMashupData(overlayData)
+		mashup.GetMashupData(parseShapefileData)
 	}
 
 	var parseShapefileData = function() {
