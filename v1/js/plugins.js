@@ -175,25 +175,44 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
-				for (var x = 0; x < shapefileData.features[i].geometry.coordinates[0].length; x++) {
-					xCord = shapefileData.features[i].geometry.coordinates[0][0];
-					yCord = shapefileData.features[i].geometry.coordinates[0][1];
+				var baseUrl = 'http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer/project?inSR=4326&outSR=3414';
+				var geometries = '';
+				var returnFormat = '&f=pjson';
 
-					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }))
-					pntArr.push(PointLocation);
+				for (var j = 0; j < shapefileData.features[i].geometry.coordinates[0].length; j++) {
+					xCord = shapefileData.features[i].geometry.coordinates[j][0];
+					yCord = shapefileData.features[i].geometry.coordinates[j][1];
+
+					geometries += '&geometries='+xCord+'%2C'+yCord;
 				}
-				polygon.addRing(pntArr);
 
-				gra = new esri.Graphic;
-				gra.geometry = polygon;
-				gra.attributes = results[i];
+				var fullUrl = baseUrl + geometries + returnFormat;
 
-				var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
-					  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
-					  new dojo.Color([0, 0, 0]), 2), new dojo.Color([r, g, b, 0.8]));
+				console.log(fullUrl);
 
-				gra.symbol = sfs;
-				themeGraphicsLayer.add(gra);
+				$.getJSON(fullUrl, function( data ) {
+
+					for (var j = 0; j < data.geometries.length; j++) {
+						var newXCord = data.geometries[j].x;
+						var newYCord = data.geometries[j].y;
+
+						var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }));
+						pntArr.push(PointLocation);
+					}
+
+					polygon.addRing(pntArr);
+
+					gra = new esri.Graphic;
+					gra.geometry = polygon;
+					gra.attributes = results[i];
+
+					var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
+						  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
+						  new dojo.Color([0, 0, 0]), 2), new dojo.Color([r, g, b, 0.8]));
+
+					gra.symbol = sfs;
+					themeGraphicsLayer.add(gra);
+				});
 			}
 		}
 		else if (featType == "Line") {
