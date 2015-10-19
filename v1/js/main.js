@@ -8,7 +8,9 @@ $( document ).ready(function() {
 	myUI.init();
 });
 
-function switchTab(target) {
+function switchTab(target,e) {
+
+	e.preventDefault();
 
 	if (target == 1) {
 		$('#breakdown-info').css('display','none');
