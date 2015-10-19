@@ -180,8 +180,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				var returnFormat = '&f=pjson';
 
 				for (var j = 0; j < shapefileData.features[i].geometry.coordinates[0].length; j++) {
-					xCord = shapefileData.features[i].geometry.coordinates[j][0];
-					yCord = shapefileData.features[i].geometry.coordinates[j][1];
+					xCord = shapefileData.features[i].geometry.coordinates[0][j][0];
+					yCord = shapefileData.features[i].geometry.coordinates[0][j][1];
 
 					geometries += '&geometries='+xCord+'%2C'+yCord;
 				}
