@@ -83,6 +83,25 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange);
+
+		try {
+			//set graphic onclick event
+			dojo.connect(themeGraphicsLayer, "onClick", function (evt) {//debugger
+				mashup.GetDataForCallout(evt.graphic, "", function (results) {//debugger
+
+					// using API's formatter
+					// var formattedResults = mashup.formatResultsEnhanced(results);
+					// using custom formatter
+					var formattedResults = customFormatResultsEnhanced(results);
+					OneMap.map.infoWindow.setTitle(themeName);
+					OneMap.map.infoWindow.setContent(formattedResults);
+					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
+				});
+			})
+		}
+		catch (err) { 
+
+		}
 	}
 
 	var overlayTheme = function(inputTheme) {
@@ -145,15 +164,18 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			return
 		}
 
-		var featcount = mashupResults.count;
-		var iconPath = mashupResults.iconPath
-		var featType = mashupResults.featType;
+		var featcount = shapefileData.features.length;
+		//var iconPath = mashupResults.iconPath
+		// asumming one file only contains one type of shape (point/line/polygon) and contains at least there is one data/features
+		var featType = shapefileData.features[0].geometry.type;
 		themeGraphicsLayer.clear();
 		var i;
 		var xPnt;
 		var yPnt;
 		var xCord;
 		var yCord;
+
+		var symbolColor = '#E600A9';
 
 		var pntArr = new Array();
 
@@ -175,14 +197,14 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 		else if (featType == "Polygon") {
 			var polygon;
-			for (i = 0; i < results.length; i++) {
-				if (mashupResults.results[i].SYMBOLCOLOR != undefined && mashupResults.results[i].SYMBOLCOLOR != "") {
-					var polyColor = mashupResults.results[i].SYMBOLCOLOR;
+			for (i = 0; i < shapefileData.features.length; i++) {
+				if (shapefileData.features[i].properties.Color != undefined && shapefileData.features[i].properties.Color != "") {
+					var polyColor = shapefileData.features[i].properties.Color;
 					var r = hexToRgb(polyColor).r;
 					var g = hexToRgb(polyColor).g;
 					var b = hexToRgb(polyColor).b;
 				}
-				else if (mashupResults.results[i].SYMBOLCOLOR == "") {
+				else {
 					var r = 0;
 					var g = 0;
 					var b = 0;
@@ -190,9 +212,9 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
-				for (var x = 0; x < results[i].XY.split("|").length; x++) {
-					xCord = results[i].XY.split("|")[x].split(",")[0];
-					yCord = results[i].XY.split("|")[x].split(",")[1];
+				for (var x = 0; x < shapefileData.features[i].geometry.coordinates[0].length; x++) {
+					xCord = shapefileData.features[i].geometry.coordinates[0][0];
+					yCord = shapefileData.features[i].geometry.coordinates[0][1];
 
 					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }))
 					pntArr.push(PointLocation);
