@@ -84,9 +84,9 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 		themeGraphicsLayer = new esri.layers.GraphicsLayer();
 		themeGraphicsLayer.id = themeName;
-		OneMap.map.addLayer(themeGraphicsLayer);
 		//mashup.GetMashupData(parseShapefileData);
 		parseShapefileData();
+		OneMap.map.addLayer(themeGraphicsLayer);
 
 		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
@@ -157,7 +157,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
 		//mashup.GetMashupData(parseShapefileData)
 		parseShapefileData();
-		themeGraphicsLayer.redraw();
+		themeGraphicsLayer.show();
 	}
 
 	var parseShapefileData = function() {
