@@ -179,7 +179,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					xCord = shapefileData.features[i].geometry.coordinates[0][j][0];
 					yCord = shapefileData.features[i].geometry.coordinates[0][j][1];
 
-					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 4326 }))
+					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 4326 }));
 					pntArr.push(PointLocation);
 				}
 				polygon.addRing(pntArr);
