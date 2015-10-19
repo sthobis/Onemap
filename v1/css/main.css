@@ -2,6 +2,20 @@
 html {
   font-size: 62.5%;
 }
+body {
+  background: url(../img/bg.jpg);
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
+body #wrapper {
+  background-color: #fff;
+}
+body #navigation #nav {
+  background-color: #DBDBDB;
+}
+body #footer {
+  margin-top: 400px;
+}
 body p {
   font-size: 1.4rem;
   color: #454545;
