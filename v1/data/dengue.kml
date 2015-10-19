@@ -1,0 +1,56 @@
+<kml xmlns:xmnls="http://earth.google.com/kml/2.2">
+  <Document>
+    <Folder>
+      onemapKML
+      <Placemark>
+        <name>Dengue 1</name>
+        <id>0</id>
+        <DESCRIPTION>
+            <![CDATA[Dengue 3 with image<img src="http://i.imgur.com/7q6sYd0.jpg"/>]]>
+        </DESCRIPTION>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>31146.15560917788,40146.55659977987,0 33055.17516721701,40834.49157564982,0 34239.95207010413,39573.27745322158,0 32443.677410888155,39076.43552620439,0 31297.119117771563,39458.621623909916,0 31146.15560917788,40146.55659977987,0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Dengue 2</name>
+        <id>1</id>
+        <Description>
+          Dengue dengue
+        </Description>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>22374.02920159172,35206.8012869359,0 23635.243324019964,34557.0849208365,0 25163.987714842082,34862.83379900093,0 25890.141300482588,32531.4986029972,0 21800.750055033426,31499.596139192272,0 22374.02920159172,35206.8012869359,0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <name>Dengue 3</name>
+        <id>2</id>
+        <description>
+          <!--
+            Hello,
+               I am a multi-line XML comment
+               <staticText>
+                  <reportElement x="180" y="0" width="200" height="20"/>
+                  <text><![CDATA[Hello World!]]></text>
+                </staticText>
+            -->
+        </description>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>37757.019634239274,37471.25391584116,0 37336.61492676319,37318.37947675895,0 37145.521877910425,37624.12835492338,0 37948.11268309204,37929.8772330878,0 36954.428829057666,38579.593599187196,0 38215.642951485905,38617.81220895775,0 38368.517390568115,39726.15189230378,0 39400.419854373045,38923.56108712217,0 38483.17321987977,38235.62611125222,0 39018.23375666751,38159.188891711114,0 38215.642951485905,37280.1608669884,0 38712.48487850309,37585.90974515282,0 38636.047658961994,36859.75615951231,0 39667.95012276691,36401.13284226568,0 40088.354830243,35292.793158919645,0 36686.89856066379,35139.918719837435,0 37413.0521463043,36783.318939971214,0 37757.019634239274,37471.25391584116,0</coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

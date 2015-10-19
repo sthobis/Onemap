@@ -1,0 +1,26 @@
+{
+  "name": "P-",
+  "version": "0.1.0",
+  "authors": [
+    "Stefanus Thobi Sinaga <stefanus@xtremax.com>"
+  ],
+  "description": "Slicing for Project ",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Slicing"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./js/vendor/"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3"
+  }
+}
