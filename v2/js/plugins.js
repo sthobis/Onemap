@@ -57,23 +57,21 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	// method to draw overlay on top of created map
 	var drawOverlay = function() {
 
-		console.log('========================================\nDrawing Overlay\n===========================================');
-
 		// Check if map is ready
-		if (OneMap.overlayKML) {
+		if (OneMap.overlayKML && shapefileData.features) {
 			// using custom file
 			//OneMap.overlayKML('data/dengue.kml');
 
 			// using OneMap mashup/theme data API
 			//overlayTheme("DENGUE_CLUSTER");
 
+			console.log('========================================\nDrawing Overlay\n===========================================');
 			// using shapefile
 			drawShapefile("Dengue Cluster");
+			console.log('========================================\nOverlay Drawn\n===========================================');
 		} else {
 			setTimeout(drawOverlay, 100);
 		}
-
-		console.log('========================================\nOverlay Drawn\n===========================================');
 	}
 
 	var drawShapefile = function(inputTheme) {
@@ -93,7 +91,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange);
 
-		console.log("aguy reached");
+		console.log("drawShapefile reached");
 
 		try {
 			//set graphic onclick event
