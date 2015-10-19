@@ -58,7 +58,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	var drawOverlay = function() {
 
 		// Check if map is ready
-		if (OneMap.overlayKML && shapefileData.features) {
+		if (OneMap.overlayKML && shapefileData != undefined) {
 			// using custom file
 			//OneMap.overlayKML('data/dengue.kml');
 
