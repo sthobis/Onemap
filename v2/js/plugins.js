@@ -173,7 +173,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					var b = hexToRgb(polyColor).b;
 				}
 				pntArr = [];
-				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
+				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:4326}));
 
 				for (var j = 0; j < shapefileData.features[i].geometry.coordinates[0].length; j++) {
 					xCord = shapefileData.features[i].geometry.coordinates[0][j][0];
