@@ -33,7 +33,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 		// Check if container exist
 		if ($('#map-container').length) {
-			OneMap = new GetOneMap('map-container', 'sm', {level:7});
+			OneMap = new GetOneMap('map-container', 'sm', {level:2});
 		} 
 	}
 
