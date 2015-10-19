@@ -169,7 +169,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		var results = shapefileData;
 
 		if (results == "No results") {
-			alert("Theme not found. Please check theme name.");
+			alert("Theme not fraud. Please check theme name.");
 			return
 		}
 
