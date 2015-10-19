@@ -190,28 +190,34 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 				console.log(fullUrl);
 
-				$.getJSON(fullUrl, function( data ) {
+				$.ajax({
+				     url: fullUrl,
+				     dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+				     success:function(data){
+				         for (var j = 0; j < data.geometries.length; j++) {
+							var newXCord = data.geometries[j].x;
+							var newYCord = data.geometries[j].y;
 
-					for (var j = 0; j < data.geometries.length; j++) {
-						var newXCord = data.geometries[j].x;
-						var newYCord = data.geometries[j].y;
+							var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }));
+							pntArr.push(PointLocation);
+						}
 
-						var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }));
-						pntArr.push(PointLocation);
-					}
+						polygon.addRing(pntArr);
 
-					polygon.addRing(pntArr);
+						gra = new esri.Graphic;
+						gra.geometry = polygon;
+						gra.attributes = results[i];
 
-					gra = new esri.Graphic;
-					gra.geometry = polygon;
-					gra.attributes = results[i];
+						var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
+							  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
+							  new dojo.Color([0, 0, 0]), 2), new dojo.Color([r, g, b, 0.8]));
 
-					var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
-						  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
-						  new dojo.Color([0, 0, 0]), 2), new dojo.Color([r, g, b, 0.8]));
-
-					gra.symbol = sfs;
-					themeGraphicsLayer.add(gra);
+						gra.symbol = sfs;
+						themeGraphicsLayer.add(gra);
+				     },
+				     error:function(){
+				         alert("Error");
+				     }      
 				});
 			}
 		}
