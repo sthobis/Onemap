@@ -157,6 +157,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
 		//mashup.GetMashupData(parseShapefileData)
 		parseShapefileData();
+		themeGraphicsLayer.redraw();
 	}
 
 	var parseShapefileData = function() {
@@ -216,9 +217,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					var b = hexToRgb(polyColor).b;
 				}
 				else {
-					var r = 0;
-					var g = 0;
-					var b = 0;
+					var polyColor = symbolColor;
+					var r = hexToRgb(polyColor).r;
+					var g = hexToRgb(polyColor).g;
+					var b = hexToRgb(polyColor).b;
 				}
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
