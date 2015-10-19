@@ -9,6 +9,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	var mashup; // overlay
 	var themeGraphicsLayer; // overlay layer
 	var gra; // graphic utilities
+	var shapefileData;
 
 	// overwrite default settings
 	var settings = $.extend( {
@@ -19,6 +20,9 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 		// init main map from API
 		initOneMap();
+
+		// load shapefile data
+		loadShapefile();
 
 		// draw overlay on top of main map
 		drawOverlay();
@@ -33,11 +37,26 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		} 
 	}
 
+	// method to load shapefile data
+	var loadShapefile = function() {
+
+		shp('data/DengueClusterSample.zip').then(function(data){
+			//do stuff with data
+			if (data) {
+				shapefileData = data;
+				console.log("Data loaded.");
+				console.log(shapefileData);
+			} else {
+				console.log('Wrong shapefile data.');
+			}
+		});
+	}
+
 	// method to draw overlay on top of created map
 	var drawOverlay = function() {
 
 		// Check if map is ready
-		if (OneMap.overlayKML) {
+		if (OneMap.overlayKML && shapefileData != undefined) {
 			// using custom file
 			//OneMap.overlayKML('data/dengue.kml');
 
@@ -101,7 +120,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				b: parseInt(result[3], 16)
 			} : null;
 		}
-		var results = mashupResults.results;
+		var results = shapefileData;
 
 		if (results == "No results") {
 			alert("Theme not found. Please check theme name.");
@@ -140,24 +159,25 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 		else if (featType == "Polygon") {
 			var polygon;
-			for (i = 0; i < results.length; i++) {
-				if (mashupResults.results[i].SYMBOLCOLOR != undefined && mashupResults.results[i].SYMBOLCOLOR != "") {
-					var polyColor = mashupResults.results[i].SYMBOLCOLOR;
+			for (i = 0; i < shapefileData.features.length; i++) {
+				if (shapefileData.features[i].properties.Color != undefined && shapefileData.features[i].properties.Color != "") {
+					var polyColor = shapefileData.features[i].properties.Color;
 					var r = hexToRgb(polyColor).r;
 					var g = hexToRgb(polyColor).g;
 					var b = hexToRgb(polyColor).b;
 				}
-				else if (mashupResults.results[i].SYMBOLCOLOR == "") {
-					var r = 0;
-					var g = 0;
-					var b = 0;
+				else {
+					var polyColor = '#E600A9';
+					var r = hexToRgb(polyColor).r;
+					var g = hexToRgb(polyColor).g;
+					var b = hexToRgb(polyColor).b;
 				}
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
-				for (var x = 0; x < results[i].XY.split("|").length; x++) {
-					xCord = results[i].XY.split("|")[x].split(",")[0];
-					yCord = results[i].XY.split("|")[x].split(",")[1];
+				for (var x = 0; x < shapefileData.features[i].geometry.coordinates[0].length; x++) {
+					xCord = shapefileData.features[i].geometry.coordinates[0][0];
+					yCord = shapefileData.features[i].geometry.coordinates[0][1];
 
 					var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }))
 					pntArr.push(PointLocation);
