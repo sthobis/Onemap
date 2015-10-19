@@ -175,11 +175,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
-				var baseUrl = 'http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer/project?inSR=4326&outSR=3414';
-				var geometries = '';
-				var returnFormat = '&f=pjson';
-
-				for (var x = 0; x < shapefileData.features[i].geometry.coordinates[0].length; x++) {
+				for (var j = 0; j < shapefileData.features[i].geometry.coordinates[0].length; j++) {
 					xCord = shapefileData.features[i].geometry.coordinates[0][j][0];
 					yCord = shapefileData.features[i].geometry.coordinates[0][j][1];
 
