@@ -67,7 +67,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 			console.log('========================================\nDrawing Overlay\n===========================================');
 			// using shapefile
-			drawShapefile("Dengue Cluster");
+			drawShapefile("Dengue_Cluster");
 			console.log('========================================\nOverlay Drawn\n===========================================');
 		} else {
 			setTimeout(drawOverlay, 100);
