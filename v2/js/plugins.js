@@ -25,7 +25,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		loadShapefile();
 
 		// draw overlay on top of main map
-		//drawOverlay();
+		drawOverlay();
 	}
 
 	// method to initialize map by calling API
@@ -34,7 +34,9 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		// Check if container exist
 		if ($('#map-container').length) {
 			OneMap = new GetOneMap('map-container', 'sm');
-		} 
+		}
+
+		console.log("Init onemap finished.");
 	}
 
 	// method to load shapefile data
@@ -44,6 +46,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			//do stuff with data
 			if (data) {
 				shapefileData = data;
+				console.log("Data loaded.");
+				console.log(shapefileData);
 			} else {
 				console.log('Wrong shapefile data.');
 			}
@@ -53,6 +57,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	// method to draw overlay on top of created map
 	var drawOverlay = function() {
 
+		console.log('========================================\nDrawing Overlay\n===========================================');
+
 		// Check if map is ready
 		if (OneMap.overlayKML) {
 			// using custom file
@@ -61,10 +67,13 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			// using OneMap mashup/theme data API
 			//overlayTheme("DENGUE_CLUSTER");
 
+			// using shapefile
 			drawShapefile("Dengue Cluster");
 		} else {
 			setTimeout(drawOverlay, 100);
 		}
+
+		console.log('========================================\nOverlay Drawn\n===========================================');
 	}
 
 	var drawShapefile = function(inputTheme) {
@@ -83,6 +92,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange);
+
+		console.log("aguy reached");
 
 		try {
 			//set graphic onclick event
