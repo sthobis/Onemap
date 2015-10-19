@@ -198,7 +198,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 							var newXCord = data.geometries[j].x;
 							var newYCord = data.geometries[j].y;
 
-							var PointLocation = new esri.geometry.Point(xCord, yCord, new esri.SpatialReference({ wkid: 3414 }));
+							var PointLocation = new esri.geometry.Point(newXCord, newYCord, new esri.SpatialReference({ wkid: 3414 }));
 							pntArr.push(PointLocation);
 						}
 
