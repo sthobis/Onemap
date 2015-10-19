@@ -89,7 +89,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 	var overlayThemeOnExtentChange = function(extent) {
 		mashup.extent = extent.xmin + "," + extent.ymin + "," + extent.xmax + "," + extent.ymax;
-		mashup.GetMashupData(overlayData)
+		mashup.GetMashupData(overlayData);
 	}
 
 	var overlayData = function(mashupResults) {
@@ -107,6 +107,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			alert("Theme not found. Please check theme name.");
 			return
 		}
+
+		console.log(mashupResults);
 
 		var featcount = mashupResults.count;
 		var iconPath = mashupResults.iconPath
