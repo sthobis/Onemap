@@ -26,6 +26,7 @@ body .map-container {
 }
 body .user {
   background-color: #ffffff;
+  padding: 0px !important;
 }
 body .user .title {
   display: none;
@@ -34,11 +35,11 @@ body .user .border {
   display: none;
 }
 body .user .hide {
-  height: 20px;
-  width: 20px;
+  height: 20px !important;
+  width: 20px !important;
   top: 5px;
   right: 5px;
-  margin: 0;
+  margin: 0 !important;
   text-align: center;
   font-size: 13px;
   line-height: 20px;
@@ -50,6 +51,8 @@ body .user .layout.content {
   -webkit-box-shadow: 2px 2px 2px 0px #a1a1a1;
   -moz-box-shadow: 2px 2px 2px 0px #a1a1a1;
   box-shadow: 2px 2px 2px 0px #a1a1a1;
+  padding: 0px !important;
+  margin: 0px !important;
 }
 body .user .layout.content .tab-head-wrap {
   background-color: #d8d8d8;
@@ -69,6 +72,7 @@ body .user .layout.content .tab-head-wrap .tab-head.active {
 }
 body .user .layout.content #basic-info {
   display: block;
+  padding: 8px;
 }
 body .user .layout.content #basic-info .info-title {
   color: #72c148;
@@ -92,6 +96,8 @@ body .user .layout.content #basic-info table tr td:last-of-type {
 }
 body .user .layout.content #breakdown-info {
   display: none;
+  padding: 8px;
+  overflow-y: scroll;
 }
 body .user .layout.content #breakdown-info .info-title {
   color: #72c148;

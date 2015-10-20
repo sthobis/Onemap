@@ -82,7 +82,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.GetMashupData(overlayData);
 
 		//resize info widnow
-		OneMap.map.infoWindow.resize(300, 200);
+		OneMap.map.infoWindow.resize(300, 300);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
@@ -296,8 +296,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 
 		var resultMarkup = "<div class='tab-head-wrap'>";
-		resultMarkup += "<a href='#' onclick ='switchTab(1,event)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
-		resultMarkup += "<a href='#' onclick ='switchTab(2,event)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(1,this,event)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(2,this,event)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
 		resultMarkup += "</div>"
 		resultMarkup += "<div id='basic-info'>";
 			resultMarkup += "<p class='info-title'>"+parsedObject.oLocality+"</p>";
@@ -323,7 +323,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	}
 }
 
-function switchTab(target,e) {
+function switchTab(target,elm,e) {
 	e.preventDefault();
 	if (target == 1) {
 		$('#breakdown-info').css('display','none');
@@ -334,5 +334,5 @@ function switchTab(target,e) {
 		$('#basic-info').css('display','none');
 	}
 	$('.tab-head').removeClass('active');
-	$(this).addClass('active');
+	$(elm).addClass('active');
 }
