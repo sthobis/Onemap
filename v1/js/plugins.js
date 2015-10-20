@@ -191,10 +191,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				console.log(fullUrl);
 
 				$.ajax({
-				     url: fullUrl,
-				     dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
-				     success:function(data){
-				         for (var j = 0; j < data.geometries.length; j++) {
+					url: fullUrl,
+					dataType: 'jsonp',
+					success:function(data){
+						for (var j = 0; j < data.geometries.length; j++) {
 							var newXCord = data.geometries[j].x;
 							var newYCord = data.geometries[j].y;
 
@@ -206,7 +206,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 						gra = new esri.Graphic;
 						gra.geometry = polygon;
-						gra.attributes = shapefileData.features[i].properties;
+						gra.attributes = shapefileData.features[0].properties;
 
 						var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
 							  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
@@ -214,10 +214,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 						gra.symbol = sfs;
 						themeGraphicsLayer.add(gra);
-				     },
-				     error:function(){
-				         alert("Error");
-				     }      
+					},
+					error:function(){
+						alert("Error");
+					}
 				});
 			}
 		}
