@@ -206,7 +206,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 						gra = new esri.Graphic;
 						gra.geometry = polygon;
-						gra.attributes = results[i];
+						gra.attributes = shapefileData.features[i].properties;
 
 						var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
 							  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
@@ -262,131 +262,51 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	// method to format result object into html-ready format
 	var customFormatResultsEnhanced = function(resultObject) {
 
-		var parsedObject = {};
-		var otherVal;
+		var parsedObject = { oLocality:"undefined", oCaseSize:-999, oClusterID:-999, oDate:"undefined", o.RO:"undefined", o.Status:"undefined"};
 
-		// copy resultObject wanted properties to parsedObject
-		for (var key in resultObject[0]) {
-			switch (key) {
-				case 'NAME':
-					if (resultObject[0]["NAME"] != "") {
-						parsedObject.oName = resultObject[0]["NAME"];
-						break;
-					}
-					else { break; }
-				case "PHOTOURL":
-					if (resultObject[0]["PHOTOURL"] != "") {
-						break;
-					}
-					else { break; }
-				case "ICON_NAME":
-					if (resultObject[0]["ICON_NAME"] != "") {
-						break;
-					}
-					else { break; }
-				case "XY":
-					if (resultObject[0]["XY"] != "") {
-						break;
-					}
-					else { break; }
-				case 'DESCRIPTION':
-					if (resultObject[0]["DESCRIPTION"] != "") {
-						parsedObject.oDescription = resultObject[0]["DESCRIPTION"];
-						break;
-					}
-					else { break; }
-				case "HYPERLINK":
-					if (resultObject[0]["HYPERLINK"] != "") {
-						parsedObject.oHyperlink = resultObject[0]["HYPERLINK"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSSTREETNAME":
-					if (resultObject[0]["ADDRESSSTREETNAME"] != "") {
-						parsedObject.oAddressStreetName= resultObject[0]["ADDRESSSTREETNAME"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSFLOORNUMBER":
-					if (resultObject[0]["ADDRESSFLOORNUMBER"] != "") {
-						parsedObject.oAdressFloorNumber= resultObject[0]["ADDRESSFLOORNUMBER"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSBLOCKHOUSENUMBER":
-					if (resultObject[0]["ADDRESSBLOCKHOUSENUMBER"] != "") {
-						parsedObject.oAddressBlockHouseNumber = resultObject[0]["ADDRESSBLOCKHOUSENUMBER"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSBUILDINGNAME":
-					if (resultObject[0]["ADDRESSBUILDINGNAME"] != "") {
-						parsedObject.oAddressBuildingName = resultObject[0]["ADDRESSBUILDINGNAME"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSFLOORNUMBER":
-					if (resultObject[0]["ADDRESSFLOORNUMBER"] != "") {
-						parsedObject.oAddressFloorNumber = resultObject[0]["ADDRESSFLOORNUMBER"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSUNITNUMBER":
-					if (resultObject[0]["ADDRESSUNITNUMBER"] != "") {
-						parsedObject.oAddressUnitNumber = resultObject[0]["ADDRESSUNITNUMBER"];
-						break;
-					}
-					else { break; }
-				case "ADDRESSPOSTALCODE":
-					if (resultObject[0]["ADDRESSPOSTALCODE"] != "") {
-						parsedObject.oAddressPostalCode = resultObject[0]["ADDRESSPOSTALCODE"];
-						break;
-					}
-					else { break; }
-				case "Number of cases":
-					if (resultObject[0]["Number of cases"] != "") {
-						parsedObject.oNumberOfCases = resultObject[0]["Number of cases"];
-						break;
-					}
-					else { break; }
-				case "SYMBOLCOLOR":
-					if (resultObject[0]["SYMBOLCOLOR"] != "") {
-						break;
-					}
-					else { break; }
-				case "MAPTIP":
-					if (resultObject[0]["MAPTIP"] != "") {
-						break;
-					}
-					else { break; }
-				case "OBJECTID":
-					if (resultObject[0]["OBJECTID"] != "") {
-						break;
-					}
-					else { break; }
-				case "PHOTOURL":
-					if (resultObject[0]["PHOTOURL"] != "") {
-						parsedObject.oPhotourl = resultObject[0]["PHOTOURL"];
-						break;
-					}
-					else { break; }
-				default:
-					otherVal += resultObject[0][key] + "<br/>";
-			}
+		try {
+			parsedObject.oLocality = resultObject[0].Locality;
+		} catch (err) {
+			console.log("Locality undefined");
+		}
+		try {
+			parsedObject.oCaseSize = resultObject[0].Case_size;
+		} catch (err) {
+			console.log("Case size undefined");
+		}
+		try {
+			parsedObject.oClusterID = resultObject[0].Cluster_ID;
+		} catch (err) {
+			console.log("Cluster ID undefined");
+		}
+		try {
+			parsedObject.oDate = resultObject[0].Date;
+		} catch (err) {
+			console.log("Date undefined");
+		}
+		try {
+			parsedObject.oRO = resultObject[0].RO;
+		} catch (err) {
+			console.log("RO undefined");
+		}
+		try {
+			parsedObject.oStatus = resultObject[0].Status;
+		} catch (err) {
+			console.log("Status undefined");
 		}
 
 		var resultMarkup = "<br/>";
 		resultMarkup += "<a href='#' onclick ='switchTab(1,event)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
 		resultMarkup += "<a href='#' onclick ='switchTab(2,event)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
 		resultMarkup += "<div id='basic-info'>";
-			resultMarkup += "<p class='info-title'>"+parsedObject.oDescription+"</p>";
+			resultMarkup += "<p class='info-title'>"+parsedObject.oLocality+"</p>";
 			resultMarkup += "<table>";
 			resultMarkup += "<tr><td>Cases with onset in last 2 weeks</td><td><strong>3</strong></td></tr>";
-			resultMarkup += "<tr><td>Cases since start of cluster</td><td><strong>"+parsedObject.oNumberOfCases+"</strong></td></tr>";
+			resultMarkup += "<tr><td>Cases since start of cluster</td><td><strong>"+parsedObject.oCaseSize+"</strong></td></tr>";
 			resultMarkup += "</table>";
 		resultMarkup += "</div>";
 		resultMarkup += "<div id='breakdown-info'>";
-			resultMarkup += "<p class='info-title'>"+parsedObject.oDescription+"</p>";
+			resultMarkup += "<p class='info-title'>"+parsedObject.oLocality+"</p>";
 			resultMarkup += "<table>";
 			resultMarkup += "<thead>";
 			resultMarkup += "<tr><th>Location</th><th>No of cases</th></tr>";
@@ -399,5 +319,17 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			resultMarkup += "</tbody>";
 			resultMarkup += "</table>";
 		return resultMarkup;
+	}
+}
+
+function switchTab(target,e) {
+	e.preventDefault();
+	if (target == 1) {
+		$('#breakdown-info').css('display','none');
+		$('#basic-info').css('display','block');
+	}
+	else {
+		$('#breakdown-info').css('display','block');
+		$('#basic-info').css('display','none');
 	}
 }
