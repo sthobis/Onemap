@@ -1,0 +1,126 @@
+
+/***************************************************************/
+/* Dated 14 Sept 03					       */
+/***************************************************************/
+body
+	{
+	font-size:13px;
+	font-family:Verdana
+	}
+td
+	{
+	font-size:13px;
+	font-family:Verdana
+	}
+h3
+	{
+	font-size:14px;
+	font-weight:bolder;
+	font-family:Verdana
+	}
+h4
+	{
+	font-size:13px;
+	text-decoration:underline;
+	font-weight:normal;
+	font-family:Verdana
+	}
+h5
+	{
+	font-size:13px;
+	font-style:italic;
+	font-weight:normal;
+	font-family:Verdana
+	}
+p
+	{
+	text-align:justify;
+	font-size:13px;
+	font-family:Verdana
+	}
+.btntxt
+	{
+	font-size:10px;
+	font-family:Verdana
+	}
+.txthd
+	{
+	color:#993300;
+	font-weight:bolder;
+	font-size:17px;
+	font-family:Verdana
+	}
+.intxt
+	{
+	color:#556b2f;
+	font-weight:bolder;
+	font-size:14px;
+	font-family:Verdana
+	}
+.menu
+	{
+	font-size:10px;
+	text-weight:bolder
+	color:#993300;
+	}
+
+.chpt
+	{
+	color:#2f4f4f;
+	font-size:9px;
+	text-decoration:none
+	}
+.ctnt
+	{
+	font-size:13px;
+	font-family:Verdana
+	}
+.ctnthd
+	{
+	font-weight:bolder;
+	font-size:13px;	
+	font-family:Verdana
+	}
+
+/* Signetique's Style */	
+input.noborder
+	{
+	font-size: 8pt;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	}
+.line
+	{
+	background-color: #666666;	
+	}
+.cell
+	{
+	color: #666666;
+; font-family: Verdana; font-size: 10px
+	}
+A:active 
+	{
+	text-decoration: none;
+	}
+A 
+	{
+	text-decoration: none;
+; font-weight: bold
+	}	
+A:hover
+	{
+	text-decoration: underline;
+	color:#ff8c00;
+	}
+A:link
+	{
+	color:#993300;
+	text-decoration:none
+	}
+A:visited
+	{
+	color:#993300
+	}
+	

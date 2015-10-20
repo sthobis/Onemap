@@ -1,0 +1,8 @@
+
+.submitBtn, .textInput, .colNav li a, .fb_content{ -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; behavior: url("include/PIE.htc"); position: relative; }
+.jspDrag{ -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; behavior: url("include/PIE.htc"); position: relative;}
+
+#footer{-webkit-border-radius:  0 0 10px 10px; -moz-border-radius:  0 0 10px 10px; border-radius: 0 0 10px 10px; -webkit-box-shadow: #666 0px 2px 3px;
+-moz-box-shadow: #666 0px 2px 3px;
+box-shadow: #666 0px 2px 3px; behavior: url("include/PIE.htc"); position: relative;}
+

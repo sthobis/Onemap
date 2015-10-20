@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+html {
+  font-size: 62.5%;
+}
+body {
+  background: url(../img/bg.jpg);
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
+body #wrapper {
+  background-color: #fff;
+}
+body #navigation #nav {
+  background-color: #DBDBDB;
+}
+body #footer {
+  margin-top: 400px;
+}
+body p {
+  font-size: 1.4rem;
+  color: #454545;
+}
+body .map-container {
+  width: 500px;
+  height: 500px;
+}
+body .user {
+  background-color: #ffffff;
+  padding: 0px !important;
+}
+body .user .title {
+  display: none;
+}
+body .user .border {
+  display: none;
+}
+body .user .hide {
+  height: 20px !important;
+  width: 20px !important;
+  top: 5px;
+  right: 5px;
+  margin: 0 !important;
+  text-align: center;
+  font-size: 13px;
+  line-height: 20px;
+}
+body .user .hide::before {
+  content: 'x';
+}
+body .user .layout.content {
+  -webkit-box-shadow: 2px 2px 2px 0px #a1a1a1;
+  -moz-box-shadow: 2px 2px 2px 0px #a1a1a1;
+  box-shadow: 2px 2px 2px 0px #a1a1a1;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+body .user .layout.content .tab-head-wrap {
+  background-color: #d8d8d8;
+}
+body .user .layout.content .tab-head-wrap .tab-head {
+  padding: 10px;
+  background-color: #d8d8d8;
+  display: inline-block;
+  text-decoration: none;
+  color: #111111;
+}
+body .user .layout.content .tab-head-wrap .tab-head:visited {
+  color: #111111;
+}
+body .user .layout.content .tab-head-wrap .tab-head.active {
+  background: #ffffff;
+}
+body .user .layout.content #basic-info {
+  display: block;
+  padding: 8px;
+}
+body .user .layout.content #basic-info .info-title {
+  color: #72c148;
+  font-weight: 600;
+  font-size: 12px;
+}
+body .user .layout.content #basic-info table {
+  border: none;
+  border-spacing: none;
+  border-collapse: collapse;
+  width: 90%;
+}
+body .user .layout.content #basic-info table tr {
+  border: none;
+}
+body .user .layout.content #basic-info table tr td {
+  border: none;
+}
+body .user .layout.content #basic-info table tr td:last-of-type {
+  text-align: center;
+}
+body .user .layout.content #breakdown-info {
+  display: none;
+  padding: 8px;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+body .user .layout.content #breakdown-info .info-title {
+  color: #72c148;
+  font-weight: 600;
+  font-size: 12px;
+}
+body .user .layout.content #breakdown-info table {
+  border: none;
+  border-spacing: none;
+  border-collapse: collapse;
+  width: 90%;
+}
+body .user .layout.content #breakdown-info table thead tr th {
+  border: 1px solid #cecece;
+  background-color: #5eb3dc;
+  color: #ffffff;
+  font-weight: normal;
+  text-align: left;
+  padding-left: 5px;
+}
+body .user .layout.content #breakdown-info table thead tr th:last-of-type {
+  text-align: center;
+}
+body .user .layout.content #breakdown-info table tr {
+  border: none;
+}
+body .user .layout.content #breakdown-info table tr:nth-child(odd) td {
+  background-color: #ffffff;
+}
+body .user .layout.content #breakdown-info table tr td {
+  border: 1px solid #cecece;
+  background-color: #d8d8d8;
+  padding-left: 5px;
+}
+body .user .layout.content #breakdown-info table tr td:last-of-type {
+  text-align: center;
+}
