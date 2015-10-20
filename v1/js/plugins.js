@@ -82,7 +82,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.GetMashupData(overlayData);
 
 		//resize info widnow
-		OneMap.map.infoWindow.resize(300, 300);
+		OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
@@ -296,7 +296,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 
 		var resultMarkup = "<div class='tab-head-wrap'>";
-		resultMarkup += "<a href='#' onclick ='switchTab(1,this,event)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
+		resultMarkup += "<a href='#' onclick ='switchTab(1,this,event)' class='active tab-head' data-target='#basic-info'>Dengue Cluster</a>";
 		resultMarkup += "<a href='#' onclick ='switchTab(2,this,event)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
 		resultMarkup += "</div>"
 		resultMarkup += "<div id='basic-info'>";

@@ -97,6 +97,7 @@ body .user .layout.content #basic-info table tr td:last-of-type {
 body .user .layout.content #breakdown-info {
   display: none;
   padding: 8px;
+  max-height: 100px;
   overflow-y: scroll;
 }
 body .user .layout.content #breakdown-info .info-title {
