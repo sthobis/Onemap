@@ -262,7 +262,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	// method to format result object into html-ready format
 	var customFormatResultsEnhanced = function(resultObject) {
 
-		var parsedObject = { oLocality:"undefined", oCaseSize:-999, oClusterID:-999, oDate:"undefined", o.RO:"undefined", o.Status:"undefined"};
+		var parsedObject = { oLocality:"undefined", oCaseSize:-999, oClusterID:-999, oDate:"undefined", oRO:"undefined", oStatus:"undefined"};
 
 		try {
 			parsedObject.oLocality = resultObject[0].Locality;
