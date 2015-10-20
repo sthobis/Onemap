@@ -295,9 +295,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			console.log("Status undefined");
 		}
 
-		var resultMarkup = "<br/>";
+		var resultMarkup = "<div class='tab-head-wrap'>";
 		resultMarkup += "<a href='#' onclick ='switchTab(1,event)' class='tab-head' data-target='#basic-info'>Dengue Cluster</a>";
 		resultMarkup += "<a href='#' onclick ='switchTab(2,event)' class='tab-head' data-target='#breakdown-info'>Breakdown</a>";
+		resultMarkup += "</div>"
 		resultMarkup += "<div id='basic-info'>";
 			resultMarkup += "<p class='info-title'>"+parsedObject.oLocality+"</p>";
 			resultMarkup += "<table>";
@@ -332,4 +333,6 @@ function switchTab(target,e) {
 		$('#breakdown-info').css('display','block');
 		$('#basic-info').css('display','none');
 	}
+	$('.tab-head').removeClass('active');
+	$(this).addClass('active');
 }
