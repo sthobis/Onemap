@@ -44,6 +44,9 @@ body .user .hide {
   font-size: 13px;
   line-height: 20px;
 }
+body .user .hide:hover {
+  text-decoration: none;
+}
 body .user .hide::before {
   content: 'x';
 }
@@ -78,6 +81,7 @@ body .user .layout.content #basic-info .info-title {
   color: #72c148;
   font-weight: 600;
   font-size: 12px;
+  margin-bottom: 10px;
 }
 body .user .layout.content #basic-info table {
   border: none;
@@ -104,6 +108,7 @@ body .user .layout.content #breakdown-info .info-title {
   color: #72c148;
   font-weight: 600;
   font-size: 12px;
+  margin-bottom: 10px;
 }
 body .user .layout.content #breakdown-info table {
   border: none;

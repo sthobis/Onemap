@@ -123,7 +123,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		var results = mashupResults.results;
 
 		if (results == "No results") {
-			alert("Theme not found. Please check theme name.");
+			//alert("Theme not found. Please check theme name.");
 			return
 		}
 
