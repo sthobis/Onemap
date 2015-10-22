@@ -109,6 +109,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 
 		$('.hide').click( function() {
 			activeGraphics = "";
+			mashup.GetMashupData(overlayData);
 		});
 	}
 
