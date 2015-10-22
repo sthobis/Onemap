@@ -106,6 +106,11 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		catch (err) { 
 
 		}
+
+		$('.hide').click( function() {
+			alert(activeGraphics);
+			activeGraphics = "";
+		});
 	}
 
 	var overlayThemeOnExtentChange = function(extent) {
@@ -383,6 +388,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 			resultMarkup += "<tr><td>Location 4</td><td><strong>"+4+"</strong></td></tr>";
 			resultMarkup += "</tbody>";
 			resultMarkup += "</table>";
+		resultMarkup += "</div>";
 		return resultMarkup;
 	}
 }
