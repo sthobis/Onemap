@@ -108,7 +108,6 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		}
 
 		$('.hide').click( function() {
-			alert(activeGraphics);
 			activeGraphics = "";
 		});
 	}
