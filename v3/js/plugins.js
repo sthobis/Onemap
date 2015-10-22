@@ -82,7 +82,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.GetMashupData(overlayData);
 
 		//resize info widnow
-		OneMap.map.infoWindow.resize(300, 200);
+		OneMap.map.infoWindow.resize(292, 163);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
