@@ -101,6 +101,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
+					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.r = 0;
+					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.g = 0;
+					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.b = 255;
+					themeGraphicsLayer.refresh();
 				});
 			})
 		}
@@ -187,6 +191,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				gra = new esri.Graphic;
 				gra.geometry = polygon;
 				gra.attributes = results[i];
+				gra.id = i;
 
 				var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
 					  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
