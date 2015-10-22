@@ -10,6 +10,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 	var themeGraphicsLayer; // overlay layer
 	var gra; // graphic utilities
 	var shapefileData;
+	var activeGraphics = "";
 
 	// overwrite default settings
 	var settings = $.extend( {
@@ -95,19 +96,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					// var formattedResults = mashup.formatResultsEnhanced(results);
 					// using custom formatter
 					var formattedResults = customFormatResultsEnhanced(results);
-					console.log(evt.graphic._shape.fillStyle.g);
-					evt.graphic._shape.fillStyle.g = 200;
-					console.log(evt.graphic._shape.fillStyle.g);
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
-					var newGraphic = evt.graphic;
-					newGraphic._shape.fillStyle.r = 0;
-					newGraphic._shape.fillStyle.g = 0;
-					newGraphic._shape.fillStyle.b = 255;
-					themeGraphicsLayer.remove(evt.graphic);
-					themeGraphicsLayer.add(newGraphic);
-					themeGraphicsLayer.refresh();
+					activeGraphics = evt.graphic.attributes.DESCRIPTION;
 				});
 			})
 		}
@@ -140,6 +132,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		var featcount = mashupResults.count;
 		var iconPath = mashupResults.iconPath
 		var featType = mashupResults.featType;
+
 		themeGraphicsLayer.clear();
 		var i;
 		var xPnt;
@@ -168,17 +161,25 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		else if (featType == "Polygon") {
 			var polygon;
 			for (i = 0; i < results.length; i++) {
-				if (mashupResults.results[i].SYMBOLCOLOR != undefined && mashupResults.results[i].SYMBOLCOLOR != "") {
-					var polyColor = mashupResults.results[i].SYMBOLCOLOR;
-					var r = hexToRgb(polyColor).r;
-					var g = hexToRgb(polyColor).g;
-					var b = hexToRgb(polyColor).b;
-				}
-				else if (mashupResults.results[i].SYMBOLCOLOR == "") {
+
+				if (activeGraphics != "" && results[i].DESCRIPTION == activeGraphics) {
 					var r = 0;
 					var g = 0;
-					var b = 0;
+					var b = 255;
+				} else {
+					if (mashupResults.results[i].SYMBOLCOLOR != undefined && mashupResults.results[i].SYMBOLCOLOR != "") {
+						var polyColor = mashupResults.results[i].SYMBOLCOLOR;
+						var r = hexToRgb(polyColor).r;
+						var g = hexToRgb(polyColor).g;
+						var b = hexToRgb(polyColor).b;
+					}
+					else if (mashupResults.results[i].SYMBOLCOLOR == "") {
+						var r = 0;
+						var g = 0;
+						var b = 0;
+					}
 				}
+
 				pntArr = [];
 				polygon = new esri.geometry.Polygon(new esri.SpatialReference({wkid:3414}));
 
@@ -195,6 +196,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 				gra.geometry = polygon;
 				gra.attributes = results[i];
 				gra.id = i;
+				gra.active = false;
 
 				var sfs = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
 					  new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
