@@ -101,9 +101,12 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
-					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.r = 0;
-					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.g = 0;
-					themeGraphicsLayer.graphics[parseInt(evt.graphic.id)]._shape.fillStyle.b = 255;
+					var newGraphic = evt.graphic;
+					newGraphic._shape.fillStyle.r = 0;
+					newGraphic._shape.fillStyle.g = 0;
+					newGraphic._shape.fillStyle.b = 255;
+					themeGraphicsLayer.remove(evt.graphic);
+					themeGraphicsLayer.add(newGraphic);
 					themeGraphicsLayer.refresh();
 				});
 			})
