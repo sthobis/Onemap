@@ -35,6 +35,10 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		// Check if container exist
 		if ($('#map-container').length) {
 			OneMap = new GetOneMap('map-container', 'sm', {level:2});
+
+			OneMap.map.on("load", function() {
+				OneMap.map.infoWindow.resize(300,200);
+			});
 		} 
 	}
 
@@ -87,7 +91,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
-		try {
+		/*try {
 			//set graphic onclick event
 			dojo.connect(themeGraphicsLayer, "onClick", function (evt) {//debugger
 				mashup.GetDataForCallout(evt.graphic, "", function (results) {//debugger
@@ -104,6 +108,22 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					mashup.GetMashupData(overlayData);
 				});
 			})
+		}
+		catch (err) { 
+
+		}*/
+
+		try {
+			themeGraphicsLayer.on("click", function(evt) {
+				var rawResult = [];
+				rawResult.push(evt.graphic.attributes);
+				var formattedResults = customFormatResultsEnhanced(rawResult);
+				OneMap.map.infoWindow.setTitle(themeName);
+				OneMap.map.infoWindow.setContent(formattedResults);
+				OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
+				activeGraphics = evt.graphic.attributes.DESCRIPTION;
+				mashup.GetMashupData(overlayData);
+			});
 		}
 		catch (err) { 
 
