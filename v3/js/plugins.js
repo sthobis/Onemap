@@ -83,7 +83,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 		mashup.GetMashupData(overlayData);
 
 		//resize info widnow
-		OneMap.map.infoWindow.resize(300, 200);
+		//OneMap.map.infoWindow.resize(300, 200);
 		OneMap.map.infoWindow.hide();
 		OneMap.onOneMapExtentChange(overlayThemeOnExtentChange)
 		
@@ -98,8 +98,8 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					var formattedResults = customFormatResultsEnhanced(results);
 					OneMap.map.infoWindow.setTitle(themeName);
 					OneMap.map.infoWindow.setContent(formattedResults);
-					OneMap.map.infoWindow.show(evt.screenPoint);
-					//OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
+					//OneMap.map.infoWindow.show(evt.screenPoint);
+					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
 					activeGraphics = evt.graphic.attributes.DESCRIPTION;
 					mashup.GetMashupData(overlayData);
 				});
