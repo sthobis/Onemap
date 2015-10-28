@@ -100,6 +100,7 @@ XtrOnemap.UIComponents = function( customSetting ) {
 					OneMap.map.infoWindow.setContent(formattedResults);
 					OneMap.map.infoWindow.show(evt.screenPoint, OneMap.map.getInfoWindowAnchor(evt.screenPoint));
 					activeGraphics = evt.graphic.attributes.DESCRIPTION;
+					mashup.GetMashupData(overlayData);
 				});
 			})
 		}
